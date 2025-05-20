@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+
+    /* Tech theme colors */
+    --tech-bg: 220 13% 18%;
+    --tech-accent: 210 100% 60%;
+    --tech-text: 0 0% 100%;
+
+    /* Art theme colors */
+    --art-bg: 0 0% 0%;
+    --art-accent: 0 100% 40%;
+    --art-text: 36 100% 90%;
+
+    /* Design theme colors */
+    --design-bg: 30 20% 96%;
+    --design-accent: 36 100% 50%;
+    --design-text: 220 13% 18%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-league-spartan);
+  }
+}
+
+/* Add a new class for the dark background */
+.dark-navy-bg {
+  background-color: #121630;
+}
+
+/* Update the glass-card classes for stronger effect */
+.glass-card {
+  @apply bg-white/20 backdrop-blur-md border border-white/20 shadow-lg;
+}
+
+.glass-card-dark {
+  @apply bg-black/30 backdrop-blur-md border border-white/10 shadow-lg;
+}
+
+.tech-theme {
+  background-color: hsl(var(--tech-bg));
+  color: hsl(var(--tech-text));
+}
+
+.art-theme {
+  background-color: hsl(var(--art-bg));
+  color: hsl(var(--art-text));
+}
+
+.design-theme {
+  background-color: hsl(var(--design-bg));
+  color: hsl(var(--design-text));
+}
+
+.animated-gradient {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.sakura {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: #ffc0cb;
+  border-radius: 15px 0px 15px 0px;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(100px, 100vh) rotate(360deg);
+  }
+}
+
+/* Replace the existing neon container styles with this static glow effect */
+.neon-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Remove the previous ::before and ::after pseudo-elements */
+.neon-container::before,
+.neon-container::after {
+  content: none;
+}
+
+/* Add a new background element for the page */
+.bg-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(149, 76, 233, 0.3) 0%, rgba(17, 24, 39, 0) 70%);
+  z-index: -10;
+  pointer-events: none;
+}
+
+/* Glassmorphism button styles */
+.glass-button {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.glass-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.glass-button-tech {
+  background: rgba(59, 130, 246, 0.2);
+}
+
+.glass-button-art {
+  background: rgba(220, 38, 38, 0.2);
+}
+
+.glass-button-design {
+  background: rgba(245, 158, 11, 0.2);
+}
+
+/* Remove the neonLight animation since we're not using it anymore */
+@keyframes neonLight {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
