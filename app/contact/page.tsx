@@ -89,7 +89,7 @@ export default function ContactPage() {
       icon: <Linkedin className="h-5 w-5" />,
       label: "LinkedIn",
       value: "Clinton Kibet",
-      link: "#",
+      link: "https://www.linkedin.com/in/clinton-kibet-b62817302",
     },
     {
       icon: <MessageSquare className="h-5 w-5" />,
